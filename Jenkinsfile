@@ -2,12 +2,12 @@ pipeline {
     agent any
     stages {
         stage(checkout) {
-            step {
+            steps {
                   checkout scm
             }
         }
          stage(Build) {
-            step {
+            steps {
                   sh 'docker build -t my-nginx-image .'
             }
         }
