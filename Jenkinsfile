@@ -1,17 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage(checkout) {
+        stage('checkout') {
             steps {
                   checkout scm
             }
         }
-         stage(Build) {
+         stage('Build') {
             steps {
                   sh 'docker build -t my-nginx-image .'
             }
         }
-         stage(Deploy) {
+         stage('Deploy') {
             steps {
                 sh 'docker rm my-nginx-image || true'
                 sh 'docker stop my-nginx-image || true'
